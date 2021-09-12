@@ -1,381 +1,926 @@
 <div class="container">
-    <h3>Personal Information</h3>
-    <form #employementform="ngForm" (ngSubmit)="onSubmit()">
+  <h3>Personal Information</h3>
+  <form
+    #EmployementForm="ngForm"
+    EncType="multipart/form-data"
+    (ngSubmit)="onSubmit(EmployementForm.value)"
+  >
+    <div class="form-group">
+      <label>Full Name <span class="form-required"> * </span></label>
+    </div>
+    <div class="form-group">
+      <div class="content">
+        <label>First Name</label>
+        <input
+          type="text"
+          class="form-control"
+          required=""
+          id="FirstName"
+          name="FirstName"
+          ngModel
+        />
+      </div>
       <div class="form-group">
-        <label>Full Name
-         <span class="form-required">
-           *
-         </span></label></div>
-         <div class="form-group">
-           <div class="content">
-           <label>First Name</label>
-           <input type="text" class="form-control" required='' name="firstname" #firstname="ngModel" [(ngModel)]="register.firstname">  
-         </div>
-         <div class="form-group">
+        <div class="content">
+          <label>Middle Name</label>
+          <input
+            type="text"
+            class="form-control"
+            name="MidName"
+            id="MidName"
+            ngModel
+          />
+        </div>
+        <div class="form-group">
           <div class="content">
-           <label>Middle Name</label>
-           <input type="text" class="form-control"name="middlename"   #middlename="ngModel" [(ngModel)]="register.middlename" >
-         </div>
-         <div class="form-group">
-          <div class="content">
-           <label>Last Name</label>
-           <input type="text" class="form-control" required='' name="lasttname"  #lasttname="ngModel" [(ngModel)]="register.lastname"> 
-         </div></div>
-         <div class="form-group">
+            <label>Last Name</label>
+            <input
+              type="text"
+              class="form-control"
+              required=""
+              name="LastName"
+              id="LastName"
+              ngModel
+            />
+          </div>
+        </div>
+        <div class="form-group">
           <label>Address</label>
-          </div></div>
-          <div class="form-group">
-            <div class="content">
-            <label>Street Address</label>
-            <input type="text" class="form-control"name="streetadd"  #streetadd="ngModel" [(ngModel)]="register.streetadd">
-          </div></div>
-          <div class="form-group">
-            <div class="content">
-            <label>City</label>
-            <input type="text" class="form-control" name="city"  #city="ngModel" [(ngModel)]="register.city">
-          </div></div>
-  
-          <div class="form-group">
-            <div class="content">
-              <label>state</label>
-              <select name="state"  class="form-control" name="state"  #state="ngModel" [(ngModel)]="register.state">
-                </select></div></div>
-                <div class="form-group">
-            <div class="content">
-              <label>ZipCode</label>
-              <input type="text" class="form-control" name="zipcode"  #zipcode="ngModel" [(ngModel)]="register.zipcode">
-              </div></div>
-  
-              <div class="form-group">
-                <div class="content">
-                  <label>Country</label>
-                  <select name="country"  class="form-control" name="country"  #country="ngModel" [(ngModel)]="register.country">
-                    </select></div></div>
-                    <div class="form-group">
-                      <div class="content">
-                    
-                            <li class="form-line">
-                              <label > Phone
-                                Number</label></li></div>
-                                <div class=content>
-                                  <div class="form-group">
-                                <label  > Area Code</label>
-                                
-                                <input id="area" name="areacode" type="text" class="form-control"  #areacode="ngModel" [(ngModel)]="register.areacode" >
-                                </div></div>
-                                
-                              <div class=content>
-                                <div class="form-group">
-                                <label   > Phone Number</label>
-                                 
-                                <input id="Phone" name="phonenumber" type="text"  class="form-control"  #phonenumber="ngModel" [(ngModel)]="register.phonenumber">
-                                </div></div>
-                                <div class=content>
-                                  <div class="form-group">
-                                
-                                  <label  > E-mail </label>
-      <input type="email" id="e" name="email" size="30" class="form-control" placeholder="ex: myname@example.com"  #email="ngModel" [(ngModel)]="register.email">
-                                  
-                                </div></div>
-                           
-                                <div class="form-group">
-                                  <div class=content>
-                            <li class="form-line">
-                              <label class>Birth Date</label>
-                              <input type="date" id="birtdate" name="birthdate" class="form-control"  #birthdate="ngModel" [(ngModel)]="register.birthdate"></div></div>
-                              <div class="form-group">
-                              <div class=content>
-                              <label  >Are You U.S.
-                                Citizen?</label>
-                              <label>
-                                <input type="radio" name="choice-radio" class="form-control"  #citizen="ngModel" [(ngModel)]="register.citizen">
-                                Yes
-                              </label>
-                              <label>
-                                <input type="radio" name="choice-radio" class="form-control" #citizen="ngModel" [(ngModel)]="register.citizen">
-                                No
-                              </label></div></div>
-  
-                            
-                              <h3>Employement Desired:</h3>
-                              <div class="form-group">
-                              <div class=content>
-                              <label >Position Applying For</label>
-                              <select id="position" name="applyposition" class="form-control" #applyposition="ngModel" [(ngModel)]="register.applyposition">
-                                <option>select </option>
-                                <option value="SD">Software Developer</option>
-                                <option value="SE">Software Engineer</option>
-                                <option value="CE">Cloud Engineer</option>
-                                <option value="T">Testing</option>
-                                <option value="Robotics">Robotics</option>
-                                <option value="Auto">Automation</option>
-                                <option value="Management">Manager</option>
-                                <option value="Trainee">Trainee</option>
-                                <option value="HR">HR</option>
-                                <option value="others">Others</option>
-                              </select></div></div>
-                              <div class="form-group">
-                                <div class=content>
-                              <label  > Date You Can Start </label>
-      <input type="date" id="canstartdate" name="canstartdate" class="form-control" #canstartdate="ngModel" [(ngModel)]="register.canstartdate"></div></div>
+        </div>
+      </div>
       <div class="form-group">
-        <div class=content>
-      <label > Salary
-        Desired</label>
-      <input id="salarydesired" name="salarydesired" type="number" class="form-control" #salarydesired="ngModel" [(ngModel)]="register.salarydesired"></div></div>
+        <div class="content">
+          <label>Street Address</label>
+          <input
+            type="text"
+            class="form-control"
+            name="StreetAdd"
+            id="StreetAdd"
+            ngModel
+          />
+        </div>
+      </div>
       <div class="form-group">
-        <div class=content>
-      <label  >Have you worked here
-        before?</label><br>
+        <div class="content">
+          <label>City</label>
+          <select
+            type="text"
+            class="form-control"
+            name="CityId"
+            id="CityId"
+            ngModel
+          >
+            <option value="undefined">Please select a City</option>
+            <option *ngFor="let city of list2" [ngValue]="city.CityId">
+              {{ city.CityName }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="content">
+          <label>state</label>
+          <select name="StateId" id="StateId" class="form-control" ngModel>
+            <option value="undefined">Please select a State</option>
+            <option *ngFor="let state of list1" [ngValue]="state.StateId">
+              {{ state.StateName }}
+            </option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="content">
+          <label>ZipCode</label>
+          <select
+            type="text"
+            class="form-control"
+            name="CodeTypeId"
+            id="CodeTypeId"
+            ngModel
+          >
+            <option value="undefined">Please select a City Code</option>
+            <option *ngFor="let code of list2" [ngValue]="code.CityId">
+              {{ code.ZipCode }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="content">
+          <label>Country</label>
+          <select
+            type="text"
+            class="form-control"
+            name="CountryId"
+            id="CountryId"
+            ngModel
+          >
+            <option value="undefined">Please select Value</option>
+            <option *ngFor="let country of list" [ngValue]="country.CountryId">
+              {{ country.CountryName }}
+            </option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="content">
+          <li class="form-line">
+            <label> Phone Number</label>
+          </li>
+        </div>
+        <div class="content">
+          <div class="form-group">
+            <label> Area Code</label>
+            <select
+              id="area"
+              type="text"
+              class="form-control"
+              name="CodeTypeId"
+              id="CodeTypeId"
+              ngModel
+            >
+              <option value="undefined">Please select a AreaCode</option>
+              <option *ngFor="let area of list3" [ngValue]="area.CodeTypeId">
+                {{ area.CodeType}}
+              </option>
+            </select>
+          </div>
+        </div>
+
+        <div class="content">
+          <div class="form-group">
+            <label> Phone Number</label>
+
+            <input
+              id="Phone"
+              name="Phone"
+              id="Phone"
+              type="text"
+              class="form-control"
+              ngModel
+            />
+          </div>
+        </div>
+        <div class="content">
+          <div class="form-group">
+            <label> E-mail </label>
+            <input
+              type="email"
+              id="Email"
+              name="Email"
+              size="254"
+              class="form-control"
+              placeholder="ex: myname@example.com"
+              ngModel
+            />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="content">
+            <li class="form-line">
+              <label class>Birth Date</label>
+              <input
+                type="date"
+                id="DOB"
+                name="DOB"
+                class="form-control"
+                ngModel
+              />
+            </li>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="content">
+            <label>Are You U.S. Citizen?</label>
+            <label>
+              <input
+                type="radio"
+                name="USCitizen"
+                id="USCitizen"
+                class="form-control"
+                value="1"
+                ngModel
+              />
+              Yes
+            </label>
+            <label>
+              <input
+                type="radio"
+                name="USCitizen"
+                id="USCitizen"
+                class="form-control"
+                value="0"
+                ngModel
+              />
+              No
+            </label>
+          </div>
+        </div>
+
+        <h3>Employement Desired:</h3>
+        <div class="form-group">
+          <div class="content">
+            <label>Position Applying For</label>
+            <select
+              name="PositionId"
+              id="PositionId"
+              class="form-control"
+              ngModel
+            >
+              <option value="undefined">
+                Please select a Position Applying For
+              </option>
+              <option
+                *ngFor="let position of list4"
+                [ngValue]="position.PositionId"
+              >
+              ngif({{position.Status}}==true)
+                {{ position.PositionName }}
+
+              </option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="content">
+            <label> Date You Can Start </label>
+            <input
+              type="date"
+              id="StartDate"
+              name="StartDate"
+              class="form-control"
+              ngModel
+            />
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="content">
+            <label> Salary Desired</label>
+            <input
+              id="Salary"
+              name="Salary"
+              type="number"
+              class="form-control"
+              ngModel
+            />
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="content">
+            <label>Have you worked here before?</label><br />
+            <label>
+              <input
+                type="radio"
+                name="PastEmp"
+                id="PastEmp"
+                class="form-control"
+                value="0"
+                ngModel
+              />
+              Yes
+            </label>
+            <label>
+              <input
+                type="radio"
+                name="PastEmp"
+                id="PastEmp"
+                class="form-control"
+                value="1"
+                ngModel
+              />
+              No
+            </label>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Have you Apply here before?</label><br />
+          <label>
+            <input
+              type="radio"
+              name="PastApply"
+              id="PastApply"
+              class="form-control"
+              value="1"
+              ngModel
+            />
+            Yes
+          </label>
+          <label>
+            <input
+              type="radio"
+              name="PastApply"
+              id="PastApply"
+              class="form-control"
+              value="0"
+              ngModel
+            />
+            No
+          </label>
+        </div>
+      </div>
+      <h3>Education:</h3>
+      <div class="content">
+        <div class="form-group">
+          <label name="courseId" ngvalue="1">High School:</label>
+          <input
+            type="text"
+            id="ClgName"
+            name="ClgName"
+            class="form-control"
+            ngModel
+          />
+        </div>
+      </div>
+      <div class="form-group">
+        <label> Numbers of year attended</label>
+        <input
+          id="CourseYear"
+          name="CourseYear"
+          type="text"
+          class="form-control"
+          ngModel
+        />
+      </div>
+      <div class="form-group">
+        <label>Graduated?</label><br />
         <label>
-          <input type="radio" name="workedbefore" class="form-control" #workedbefore="ngModel" [(ngModel)]="register.workedbefore">
+          <input
+            type="checkbox"
+            name="CourseGraduate"
+            id="CourseGraduate"
+            class="form-control"
+            value="1"
+            ngModel
+          />
           Yes
         </label>
-        <label>
-          <input type="radio"  name="workedbefore" class="form-control" #workedbefore="ngModel" [(ngModel)]="register.workedbefore">
-          No
-        </label></div></div>
-    
+      </div>
+      <div class="content">
         <div class="form-group">
-      <label>Have you Apply here
-        before?</label><br>
-      <label>
-        <input type="radio"  name="applybefore" class="form-control" #applybefore="ngModel" [(ngModel)]="register.applybefore">
-        Yes
-      </label>
-      <label>
-        <input type="radio"  name="applybefore" class="form-control"  #applybefore="ngModel" [(ngModel)]="register.applybefore">
-        No
-      </label></div></div>
-      <h3>Education:</h3>
-      <div class=content>
-        <div class="form-group">
-      <label for="HighSchool">High School:</label>
-      <input type="text" id="highschool" name="highschool" class="form-control" #highschool="ngModel" [(ngModel)]="register.highschool"></div></div>
-      <div class="form-group">
-      <label  > Numbers of year
-        attended</label>
-      <input id="years" name="hsattendedyear" type="text" class="form-control" #hsattendedyear="ngModel" [(ngModel)]="register.hsattendedyear"></div>
-      <div class="form-group">
-      <label>Graduated?</label><br>
-      <label>
-        <input type="radio" name="hsgraduated" class="form-control" #hsgraduated="ngModel" [(ngModel)]="register.hsgraduated">
-        Yes
-      </label></div>
-      <div class=content>
-        <div class="form-group">
-      <label for="College">College:</label>
-      <input type="text" id="college" name="college" class="form-control" #college="ngModel" [(ngModel)]="register.college"><br>
-      <div class="form-group">
-      <label  > Numbers of year
-        attended</label>
-      <input id="years" name="cattendedyear" type="text" class="form-control" #cattendedyear="ngModel" [(ngModel)]="register.cattendedyear"></div>
-      <div class="form-group">
-      <label> Graduated?</label><br>
-      <label>
-        <input type="radio" name="cgraduated" class="form-control" #cgraduated="ngModel" [(ngModel)]="register.cgraduated">
-        Yes
-      </label></div>
-      <div class="form-group">
-      <label >Area of Study</label>
-      <select id="careaofstudy" name="careaofstudy" class="form-control" #careaofstudy="ngModel" [(ngModel)]="register.careaofstudy">
-        <option>select </option>
-        <option value="M">Mathematics</option>
-        <option value="Bio">Biology</option>
-        <option value="A">Art</option>
-  
-        <option value="others">Others</option>
-      </select></div>
-      <div class=content>
-        <div class="form-group">
-      <label for="GraduateSchool">Graduate School:</label>
-      <input type="text" id="graduateschool" name="graduateschool" value="" class="form-control" #graduateschool="ngModel" [(ngModel)]="register.graduateschool"></div>
-  
-      <label  > Numbers of year
-        attended</label>
-      <input id="years" name="gsattendedyear" type="number" class="form-control" #gsattendedyear="ngModel" [(ngModel)]="register.gsattendedyear"><br>
-  
-      <label>Graduated?</label><br>
-      <label>
-        <input type="radio" name="gsgraduated" class="form-control" #gsgraduated="ngModel" [(ngModel)]="register.gsgraduated">
-        Yes
-      </label><br>
-    
-      <label>Area of Study</label>
-      <select id="gsareaofstudy" name="gsareaofstudy" class="form-control" #gsareaofstudy="ngModel" [(ngModel)]="register.gsareaofstudy">
-        <option>select </option>
-        <option value="M">Mathematics</option>
-        <option value="Bio">Biology</option>
-        <option value="A">Art</option>
-  
-        <option value="others">Others</option>
-      </select></div>
-      <div class=content>
-      <label for="TradeSchool">Trade School/Others:</label>
-      <input type="text" id="tradeschool" name="tradeschool"  class="form-control" #tradeschool="ngModel" [(ngModel)]="register.tradeschool"><br>
-  
-      <label  > Numbers of year
-        attended</label>
-      <input id="years" name="tsattendedyear" type="number" class="form-control" #tsattendedyear="ngModel" [(ngModel)]="register.tsattendedyear"><br>
-  
-      <label  >Graduated?</label><br>
-      <label>
-        <input type="radio" name="tsgraduated" class="form-control" #tsgraduated="ngModel" [(ngModel)]="register.tsgraduated">
-        Yes
-      </label><br>
-      <label  >Area of Study</label>
-      <select id="tsareaofstudy" name="tsareaofstudy" class="form-control" #tsareaofstudy="ngModel" [(ngModel)]="register.tsareaofstudy">
-        <option>select </option>
-        <option value="M">Mathematics</option>
-        <option value="Bio">Biology</option>
-        <option value="A">Art</option>
-  
-        <option value="others">Others</option>
-      </select></div>
-      <h3>Skills / Qualifications</h3>
-      <div class=content>
-      <label >Skills:</label>
-  
-  <textarea id="skills" name="skills" rows="4" cols="50" class="form-control" #skills="ngModel" [(ngModel)]="register.skills">
-    </textarea><br>
-  
-    <label>Qualifications:</label>
-  
-    <textarea id="qualification" name="qualification" rows="4" cols="50" class="form-control" #qualification="ngModel" [(ngModel)]="register.qualification">
-      </textarea></div>
-  
-      <h3> Current Employement</h3>
-      <div class=content>
-  <label >Current Employer:</label>
-      <input type="text" id="cemp" name="cemp"  class="form-control" #cemp="ngModel" [(ngModel)]="register.cemp"><br>
-  
-      <label>Position:</label>
-      <input type="text" id="cposition" name="cposition"  class="form-control" #cposition="ngModel" [(ngModel)]="register.cposition"><br>
-  
-      <label >Salary:</label>
-      <input type="Number" id="csalary" name="csalary" value="" class="form-control" #csalary="ngModel" [(ngModel)]="register.csalary"><br>
-  
-      <label >Reason for Leaving?</label>
-      <input type="text" id="creasonforleaving" name="creasonforleaving" class="form-control" #creasonforleaving="ngModel" [(ngModel)]="register.creasonforleaving"><br>
-  
-      <label >  Start Date </label>
-      <input type="date" id="cstartdate" name="cstartdate" class="form-control" #cstartdate="ngModel" [(ngModel)]="register.cstartdate"><br>
-      <label>May We Contact?</label><br>
-      <label>
-        <input type="radio" name="cmaywecontact" class="form-control" #cmaywecontact="ngModel" [(ngModel)]="register.cmaywecontact">
-        Yes
-      </label>
-      <label>
-        <input type="radio" name="cmaywecontact" class="form-control" #cmaywecontact="ngModel" [(ngModel)]="register.cmaywecontact">
-        No
-      </label></div>
-  
-      <h3>Previous Employement</h3>
-      <div class=content>
-      <label >Previous Employer:</label>
-      <input type="text" id="pemp1" name="pemp1"  class="form-control" #pemp1="ngModel" [(ngModel)]="register.pemp1"><br>
-  
-      <label>Position:</label>
-      <input type="text" id="pposition1" name="pposition1"  class="form-control" #pposition1="ngModel" [(ngModel)]="register.pposition1"><br>
-  
-      <label> Salary:</label>
-      <input type="Number" id="psalary1" name="psalary1" value="" class="form-control" #psalary1="ngModel" [(ngModel)]="register.psalary1"><br>
-  
-      <label >Reason for Leaving?</label>
-      <input type="text" id="preasonforleaving1" name="preasonforleaving1"  class="form-control" #preasonforleaving1="ngModel" [(ngModel)]="register.preasonforleaving1"><br>
-  
-      <label >  Start Date </label>
-      <input type="date" id="pstartdate1" name="pstartdate1" class="form-control" #pstartdate1="ngModel" [(ngModel)]="register.pstartdate1">
-      <label >  End Date </label>
-      <input type="date" id="peenddate1" name="penddate1" class="form-control" #penddate1="ngModel" [(ngModel)]="register.penddate1"></div>
-      <div class=content>
-      <label >Previous Employer:</label>
-      <input type="text" id="pemp2" name="pemp2"  class="form-control" #pemp2="ngModel" [(ngModel)]="register.pemp2"><br>
-  
-  
-      <label>Position:</label>
-      <input type="text" id="pposition2" name="pposition2" class="form-control" #pposition2="ngModel" [(ngModel)]="register.pposition2"><br>
-  
-      <label>Salary:</label>
-      <input type="Number" id="psalary2" name="psalary2" class="form-control" #psalary2="ngModel" [(ngModel)]="register.psalary2"><br>
-  
-      <label>Reason for Leaving?</label>
-      <input type="text" id="preasonforleaving2" name="preasonforleaving2"  class="form-control" #preasonforleaving2="ngModel" [(ngModel)]="register.preasonforleaving2"><br>
-  
-      <label >  Start Date </label>
-      <input type="date" id="pstartdate2" name="pstartdate2" class="form-control"  #pstartdate2="ngModel" [(ngModel)]="register.pstartdate2">
-      <label>  End Date </label>
-      <input type="date" id="penddate2" name="penddate2" class="form-control" #penddate2="ngModel" [(ngModel)]="register.penddate2"></div>
-  
-      <h3>References</h3>
-      <div class=content>
-  <label >Reference 1:</label>
-      <input type="text" id="reference1" name="reference1"  class="form-control" #reference1="ngModel" [(ngModel)]="register.reference1"><br>
-  
-      <label >Relationship:</label>
-      <input type="text" id="relation1" name="relation1" class="form-control" #relation1="ngModel" [(ngModel)]="register.relation1">
-      
-      <label >Years Aquinted:</label>
-      <input type="text" id="years1" name="years1"  class="form-control" #years1="ngModel" [(ngModel)]="register.years1"><br> 
-  
-      <label>PhoneNumber:</label>
-      <input type="number" id="phone1" name="phone1"  class="form-control" #phone1="ngModel" [(ngModel)]="register.phone1">
-      <label>Email:</label>
-      <input type="email" id="email1" name="email1" class="form-control" #email1="ngModel" [(ngModel)]="register.email1">
+          <label name="CourseId" value="2">College:</label>
+          <input
+            type="text"
+            id="ClgName"
+            name="ClgName"
+            class="form-control"
+            ngModel
+          /><br />
+          <div class="form-group">
+            <label> Numbers of year attended</label>
+            <input
+              id="CourseYear"
+              name="CourseYear"
+              type="text"
+              class="form-control"
+              ngModel
+            />
+          </div>
+          <div class="form-group">
+            <label> Graduated?</label><br />
+            <label>
+              <input
+                type="checkbox"
+                name="CourseGraduate"
+                id="CourseGraduate"
+                class="form-control"
+                value="1"
+                ngModel
+              />
+              Yes
+            </label>
+          </div>
+          <div class="form-group">
+            <label>Area of Study</label>
+            <select id="StudyId" name="StudyId" class="form-control" ngModel>
+              <option value="undefined">Please select Area of Study</option>
+              <option *ngFor="let area of list5" [ngValue]="area.StudyId">
+                {{ area.StudyType }}
+              </option>
+            </select>
+          </div>
+          <div class="content">
+            <div class="form-group">
+              <label for="CourseId">Graduate School:</label>
+              <input
+                type="text"
+                id="CourseId"
+                name="CourseId"
+                class="form-control"
+                ngModel
+              />
+            </div>
 
-      <div class=content>
-        <label >Reference 2:</label>
-            <input type="text" id="reference2" name="reference2"  class="form-control" #reference2="ngModel" [(ngModel)]="register.reference2"><br>
-        
-            <label >Relationship:</label>
-            <input type="text" id="relation2" name="relation2" class="form-control" #relation2="ngModel" [(ngModel)]="register.relation2">
-            
-            <label >Years Aquinted:</label>
-            <input type="text" id="years2" name="years2"  class="form-control" #years2="ngModel" [(ngModel)]="register.years2"><br> 
-        
+            <label> Numbers of year attended</label>
+            <input
+              id="CourseYear"
+              name="CourseYear"
+              type="number"
+              class="form-control"
+              ngModel
+            /><br />
+
+            <label>Graduated?</label><br />
+            <label>
+              <input
+                type="checkbox"
+                name="CourseGraduate"
+                id="CourseGraduate"
+                class="form-control"
+                value="1"
+                ngModel
+              />
+              Yes
+            </label>
+            <br />
+
+            <label>Area of Study</label>
+            <select id="StudyId" name="StudyId" class="form-control" ngModel>
+              <option value="undefined">Please select Area of Study</option>
+              <option *ngFor="let area of list5" [ngValue]="area.StudyId">
+                {{ area.StudyType }}
+              </option>
+            </select>
+          </div>
+          <div class="content">
+            <label name="CourseId" value="3">Trade School/Others:</label>
+            <input
+              type="text"
+              id="ClgName"
+              name="ClgName"
+              class="form-control"
+              ngModel
+            /><br />
+
+            <label> Numbers of year attended</label>
+            <input
+              id="CourseYear"
+              name="CourseYear"
+              type="number"
+              class="form-control"
+              ngModel
+            /><br />
+
+            <label>Graduated?</label><br />
+            <label>
+              <input
+                type="checkbox"
+                name="CourseGraduate"
+                id="CourseGraduate"
+                class="form-control"
+                value="1"
+                ngModel
+              />
+              Yes
+            </label>
+            <br />
+            <label>Area of Study</label>
+            <select id="StudyId" name="StudyId" class="form-control" ngModel>
+              <option value="undefined">Please select Area of Study</option>
+              <option *ngFor="let area of list5" [ngValue]="area.StudyId">
+                {{ area.StudyType }}
+              </option>
+            </select>
+          </div>
+          <h3>Skills / Qualifications</h3>
+          <div class="content">
+            <label>Skills:</label>
+
+            <textarea
+              id="Skills"
+              name="Skills"
+              rows="4"
+              cols="50"
+              class="form-control"
+              ngModel
+            >
+            </textarea
+            ><br />
+
+            <label>Qualifications:</label>
+
+            <textarea
+              id="Qualifications"
+              name="Qualifications"
+              rows="4"
+              cols="50"
+              class="form-control"
+              ngModel
+            >
+            </textarea>
+          </div>
+
+          <h3>Current Employement</h3>
+          <div class="content">
+            <label name="EmpTypeId" value="1">Current Employer:</label>
+            <input
+              type="text"
+              id="EmpName"
+              name="EmpName"
+              class="form-control"
+              #ngModel
+            /><br />
+
+            <label>Position:</label>
+            <select
+              type="text"
+              id="EmpPositionId"
+              name="EmpPositionId"
+              class="form-control"
+              ngModel
+            >
+              <option value="undefined">Please select a Position</option>
+              <option
+                *ngFor="let position of list4"
+                [ngValue]="position.PositionId"
+              >
+                {{ position.PositionName }}
+              </option>
+            </select>
+
+            <br />
+
+            <label>Salary:</label>
+            <input
+              type="Number"
+              id="EmpSalary"
+              name="EmpSalary"
+              class="form-control"
+              ngModel
+            /><br />
+
+            <label>Reason for Leaving?</label>
+            <input
+              type="text"
+              id="ReasonForLeaving"
+              name="ReasonForLeaving"
+              class="form-control"
+              ngModel
+            /><br />
+
+            <label> Start Date </label>
+            <input
+              type="date"
+              id="EmpStartDate"
+              name="EmpStartDate"
+              class="form-control"
+              ngModel
+            /><br />
+            <label>May We Contact?</label><br />
+            <label>
+              <input
+                type="radio"
+                name="MayWeContact"
+                id="MayWeContact"
+                class="form-control"
+                value="1"
+                ngModel
+              />
+              Yes
+            </label>
+            <label>
+              <input
+                type="radio"
+                name="MayWeContact"
+                id="MayWeContact"
+                class="form-control"
+                value="0"
+                ngModel
+              />
+              No
+            </label>
+          </div>
+
+          <h3>Previous Employement</h3>
+          <div class="content">
+            <label name="EmpTypeId" value="2">Previous Employer:</label>
+            <input
+              type="text"
+              id="EmpName"
+              name="EmpName"
+              class="form-control"
+              #ngModel
+            /><br />
+
+            <label>Position:</label>
+            <select
+              type="text"
+              id="EmpPositionId"
+              name="EmpPositionId"
+              class="form-control"
+              #ngModel
+            >
+              <option value="undefined">Please select a Position</option>
+              <option
+                *ngFor="let position of list4"
+                [ngValue]="position.PositionId"
+              >
+                {{ position.PositionName }}
+              </option>
+            </select>
+
+            <br />
+
+            <label> Salary:</label>
+            <input
+              type="Number"
+              id="EmpSalary"
+              name="EmpSalary"
+              class="form-control"
+              ngModel
+            /><br />
+
+            <label>Reason for Leaving?</label>
+            <input
+              type="text"
+              id="ReasonForLeaving"
+              name="ReasonForLeaving"
+              class="form-control"
+              ngModel
+            /><br />
+
+            <label> Start Date </label>
+            <input
+              type="date"
+              id="EmpStartDate"
+              name="EmpStartDate"
+              class="form-control"
+              ngModel
+            />
+            <label> End Date </label>
+            <input
+              type="date"
+              id="EmpEndDate"
+              name="EmpEndDate"
+              class="form-control"
+              ngModel
+            />
+          </div>
+          <div class="content">
+            <label>Previous Employer:</label>
+            <div class="content">
+              <label name="EmpTypeId" value="2">Previous Employer:</label>
+              <input
+                type="text"
+                id="EmpName"
+                name="EmpName"
+                class="form-control"
+                #ngModel
+              /><br />
+
+              <label>Position:</label>
+              <select
+                type="text"
+                id="EmpPositionId"
+                name="EmpPositionId"
+                class="form-control"
+                #ngModel
+              >
+                <option value="undefined">Please select a Position</option>
+                <option
+                  *ngFor="let position of list4"
+                  [ngValue]="position.PositionId"
+                >
+                  {{ position.PositionName }}
+                </option>
+              </select>
+
+              <br />
+
+              <label> Salary:</label>
+              <input
+                type="Number"
+                id="EmpSalary"
+                name="EmpSalary"
+                class="form-control"
+                ngModel
+              /><br />
+
+              <label>Reason for Leaving?</label>
+              <input
+                type="text"
+                id="ReasonForLeaving"
+                name="ReasonForLeaving"
+                class="form-control"
+                ngModel
+              /><br />
+
+              <label> Start Date </label>
+              <input
+                type="date"
+                id="EmpStartDate"
+                name="EmpStartDate"
+                class="form-control"
+                ngModel
+              />
+              <label> End Date </label>
+              <input
+                type="date"
+                id="EmpEndDate"
+                name="EmpEndDate"
+                class="form-control"
+                ngModel
+              />
+            </div>
+          </div>
+
+          <h3>References</h3>
+          <div class="content">
+            <label>Reference 1:</label>
+            <input
+              type="text"
+              id="NameOfReference"
+              name="NameOfReference"
+              class="form-control"
+              ngModel
+            /><br />
+
+            <label>Relationship:</label>
+            <input
+              type="text"
+              id="Relationship"
+              name="Relationship"
+              class="form-control"
+              ngModel
+            />
+
+            <label>Years Acquainted:</label>
+            <input
+              type="text"
+              id="YearsAcquainted"
+              name="YearsAcquainted"
+              class="form-control"
+              ngModel
+            /><br />
+
             <label>PhoneNumber:</label>
-            <input type="number" id="phone2" name="phone2"  class="form-control" #phone2="ngModel" [(ngModel)]="register.phone2">
+            <input
+              type="number"
+              id="ReferencePhone"
+              name="ReferencePhone"
+              class="form-control"
+              ngModel
+            />
             <label>Email:</label>
-            <input type="email" id="email2" name="email2" class="form-control" #email2="ngModel" [(ngModel)]="register.email2">
-  
-            <div class=content>
-              <label >Reference 3:</label>
-                  <input type="text" id="reference3" name="reference3"  class="form-control" #reference3="ngModel" [(ngModel)]="register.reference3"><br>
-              
-                  <label >Relationship:</label>
-                  <input type="text" id="relation3" name="relation3" class="form-control" #relation3="ngModel" [(ngModel)]="register.relation3">
-                  
-                  <label >Years Aquinted:</label>
-                  <input type="text" id="years3" name="years3"  class="form-control" #years3="ngModel" [(ngModel)]="register.years3"><br> 
-              
-                  <label>PhoneNumber:</label>
-                  <input type="number" id="phone3" name="phone3"  class="form-control" #phone3="ngModel" [(ngModel)]="register.phone3">
-                  <label>Email:</label>
-                  <input type="email" id="email3" name="email3" class="form-control" #email3="ngModel" [(ngModel)]="register.email3">
-   
-  
-     
-      <h3>Cover Letter & Resume (optional)</h3>
-      <div class=content>
-      <label >Cover Letter:</label>
-  <input type="file" id="coverletter" name="coverletter" class="form-control" #coverletter="ngModel" [(ngModel)]="register.coverletter"><br>
-  <label>Resume:</label>
-  <input type="file" id="resume" name="resume" class="form-control" #resume="ngModel" [(ngModel)]="register.resume">
+            <input
+              type="email"
+              id="ReferenceEmail"
+              name="ReferenceEmail"
+              class="form-control"
+              ngModel
+            />
+
+            <div class="content">
+              <label>Reference 2:</label>
+              <input
+                type="text"
+                id="NameOfReference"
+                name="NameOfReference"
+                class="form-control"
+                ngModel
+              /><br />
+
+              <label>Relationship:</label>
+              <input
+                type="text"
+                id="Relationship"
+                name="Relationship"
+                class="form-control"
+                ngModel
+              />
+
+              <label>Years Acquainted:</label>
+              <input
+                type="text"
+                id="YearsAcquainted"
+                name="YearsAcquainted"
+                class="form-control"
+                ngModel
+              /><br />
+
+              <label>PhoneNumber:</label>
+              <input
+                type="number"
+                id="ReferencePhone"
+                name="ReferencePhone"
+                class="form-control"
+                ngModel
+              />
+              <label>Email:</label>
+              <input
+                type="email"
+                id="ReferenceEmail"
+                name="ReferenceEmail"
+                class="form-control"
+                ngModel
+              />
+
+              <div class="content">
+                <label>Reference 3:</label>
+                <input
+                  type="text"
+                  id="NameOfReference"
+                  name="NameOfReference"
+                  class="form-control"
+                  ngModel
+                /><br />
+
+                <label>Relationship:</label>
+                <input
+                  type="text"
+                  id="Relationship"
+                  name="Relationship"
+                  class="form-control"
+                  ngModel
+                />
+
+                <label>Years Acquainted:</label>
+                <input
+                  type="text"
+                  id="YearsAcquainted"
+                  name="YearsAcquainted"
+                  class="form-control"
+                  ngModel
+                /><br />
+
+                <label>PhoneNumber:</label>
+                <input
+                  type="number"
+                  id="ReferencePhone"
+                  name="ReferencePhone"
+                  class="form-control"
+                  ngModel
+                />
+                <label>Email:</label>
+                <input
+                  type="email"
+                  id="ReferenceEmail"
+                  name="ReferenceEmail"
+                  class="form-control"
+                  ngModel
+                />
+
+                <h3>Cover Letter & Resume (optional)</h3>
+                <div class="content">
+                  <label name="DocTypeId" value="1">Cover Letter:</label>
+                  <input
+                    type="file"
+                    id="DocName"
+                    name="DocName"
+                    class="form-control"
+                    ngModel
+                  /><br />
+                  <label name="DocTypeId" value="2">Resume:</label>
+                  <input
+                    type="file"
+                    id="DocName"
+                    name="DocName"
+                    class="form-control"
+                    ngModel
+                  />
+
+                  <h3>Send Application</h3>
+                  <p>
+                    By clicking the submit button below, I cerity that all of
+                    the information provided by me on this application is true
+                    and complete, and I understand that if any false
+                    information, ommissions, or misrepresentations are
+                    discovered, my application may be rejected and, if I am
+                    employed, my employement may be terminated at any time. In
+                    consideration of my employment, I agree to conform to the
+                    company's rules and regulations, and I agree that my
+                    employment and compenstation can be terminated, with or
+                    without cause, and with or without notice, at any time, at
+                    either my or the company's option. I also understand and
+                    agree that the terms and conditions of my employment may be
+                    changed, with or without cause, and with or without notice,
+                    at any time by the company
+                  </p>
+
+                  <div class="content">
+                    <label>Signature:</label>
+                    <input
+                      type="text"
+                      id="Signature"
+                      name="Signature"
+                      value=""
+                      class="form-control"
+                      ngModel
+                    />
+                  </div>
+
+                  <input type="submit" value="Submit" />
+                  <input type="submit" value="Reset" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-  
-  <h3>Send Application</h3>
-  <p>By clicking the submit button below, I cerity that all of the information provided by me on this application is true and complete, and I understand that if any false information, ommissions, or misrepresentations are discovered, my application may be rejected and, if I am employed, my employement may be terminated at any time. In consideration of my employment, I agree to conform to the company's rules and regulations, and I agree that my employment and compenstation can be terminated, with or without cause, and with or without notice, 
-    at any time, at either my or the company's option. 
-    I also understand and agree that the terms and conditions of my employment may be changed, with or without cause, 
-    and with or without notice, at any time by the company</p>
-  
-    <div class=content>
-     
-    <label >Signature:</label>
-    <input type="text" id="sign" name="sign" value="" class="form-control" #sign="ngModel" [(ngModel)]="register.sign"></div>
-    
-    
-  <input type="submit" value="Submit">
-      <input type="submit" value="Reset">
-  
-     
+
+  </form>
+</div>
