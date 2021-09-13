@@ -6,6 +6,11 @@ div.gallery {
     border: 1px solid #777;
   }
   
+
+  .center{
+float: center;
+  }
+  
   div.gallery img {
     width: 100%;
     height: auto;

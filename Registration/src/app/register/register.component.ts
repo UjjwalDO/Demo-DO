@@ -1,12 +1,18 @@
 import { Component, OnInit } from '@angular/core';
+import { AbstractControl, ValidationErrors } from '@angular/forms';
 import { RegisterService } from '../register.service';
 import { Register } from './register.model';
-
+ 
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css'],
 })
+ 
+
+	 
+	
+	
 export class RegisterComponent implements OnInit {
   register = new Register();
 
@@ -16,6 +22,7 @@ export class RegisterComponent implements OnInit {
   list3: any = [];
   list4:any = [];
   list5:any = [];
+  productService: any;
 
   constructor(private registerService: RegisterService) {}
 
@@ -23,12 +30,14 @@ export class RegisterComponent implements OnInit {
     this.List();
   }
 
-  onSubmit(Data: any) {
-    console.log(Data);
-    this.registerService.InsertData(Data).subscribe((result) => {
-      alert(result);
-    });
-  }
+  onSubmit() {
+  
+      console.log("Form Submitted!");
+       
+    }
+  
+   
+  
   List() {
     this.registerService.getCountry().subscribe((data) => {
       this.list = data;
@@ -49,4 +58,15 @@ export class RegisterComponent implements OnInit {
       this.list5 = data;
     });
   }
+
+allowNumericDigitsOnlyOnKeyUp(event: { which: any; keyCode: any; }):any
+   {		
+		const charCode = event.which ? event.which : event.keyCode;
+		
+		if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+		 console.log('charCode restricted is'+ charCode);
+     return false;
+		}
+	}
 }
+ 

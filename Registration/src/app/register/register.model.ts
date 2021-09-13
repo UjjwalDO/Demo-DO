@@ -1,4 +1,7 @@
 export class Register {
+  reset() {
+    throw new Error('Method not implemented.');
+  }
     firstname: any;
     middlename : any;
     lastname : any;
@@ -72,6 +75,7 @@ export class Register {
 coverletter:any;
 resume:any;
 sign:any;
+  valid: any;
 
 
 
