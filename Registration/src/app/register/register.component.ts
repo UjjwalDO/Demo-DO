@@ -25,7 +25,8 @@ export class RegisterComponent implements OnInit {
   list3: any = [];
   list4:any = [];
   list5:any = [];
-  productService: any;
+
+  files:any;
 
   constructor(private registerService: RegisterService) {}
 
@@ -73,13 +74,17 @@ allowNumericDigitsOnlyOnKeyUp(event: { which: any; keyCode: any; }):any
      return false;
 		}
 	}
-  onFileSelected(event:any) {
-    let fileList: FileList = event.target.files;
-    if(fileList.length > 0) {
-        let file: File = fileList[0];
-        let formData:FormData = new FormData();
-        formData.append('uploadFile', file, file.name);
-         
-    }
+  fileChange(event:any) {
+   
+    this.files=event.target.files[0];
+    console.log(this.files);
+
   }
+  insertData()
+  {
+    let formdata=new FormData();
+    formdata.append("file",this.files,this.files.name);
+  }
+        
+         
 }

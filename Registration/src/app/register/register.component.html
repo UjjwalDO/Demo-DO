@@ -888,10 +888,10 @@
                 <div class="content">
                   <label name="DocTypeId" value="1">Cover Letter:</label>
                   <input type="file" class="file"
-                   (change)="onFileSelected($event)">
+                   (change)="fileChange($event)">
                   <br />
                   <label name="DocTypeId" value="2">Resume:</label>
-                  <input type="file" (change)="onFileSelected($event)" 
+                  <input type="file" (change)="fileChange($event)" 
                   placeholder="Upload file" accept=".pdf,.doc,.docx">
                   <h3>Send Application</h3>
                   <p>
