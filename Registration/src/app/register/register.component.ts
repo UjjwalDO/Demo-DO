@@ -74,17 +74,20 @@ allowNumericDigitsOnlyOnKeyUp(event: { which: any; keyCode: any; }):any
      return false;
 		}
 	}
+ 
+  insertData()
+  {
+    let formdata=new FormData();
+    formdata.append("file",this.files,this.files.name);
+    this.registerService.InsertData(formdata).subscribe((result)=>{
+      alert(result);
+    });
+  }
   fileChange(event:any) {
    
     this.files=event.target.files[0];
     console.log(this.files);
 
-  }
-  insertData()
-  {
-    let formdata=new FormData();
-    formdata.append("file",this.files,this.files.name);
-  }
-        
+  }    
          
 }

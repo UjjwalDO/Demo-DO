@@ -44,4 +44,8 @@ export class RegisterService {
   getEmpType(): Observable<any[]> {
     return this.http.get<any>(this.url + '/Emp');
   }
+  getinsertData(): Observable<any[]> {
+    return this.http.get<any>(this.url + 'formdata');
+  }
+  
 }
