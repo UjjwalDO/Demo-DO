@@ -4,7 +4,7 @@
   <h3>Personal Information</h3>
   <hr>
   <form #EmployementForm="ngForm"
-  (ngSubmit)="onSubmit()">
+  (ngSubmit)="onSubmit(EmployementForm.valid)">
     <div class="form-group">
       <div class="content">
       <label><b>Full Name</b> <span class="form-required"> * </span></label>
@@ -887,16 +887,12 @@
                 <h3>Cover Letter & Resume (optional)</h3>
                 <div class="content">
                   <label name="DocTypeId" value="1">Cover Letter:</label>
-                  <input
-                    type="file"
-                    id="DocName"
-                    name="DocName"
-                    class="form-control"
-                    ngModel
-                  /><br />
-                  <label name="DocTypeId" value="2">Resume:</label>
                   <input type="file" class="file"
                    (change)="onFileSelected($event)">
+                  <br />
+                  <label name="DocTypeId" value="2">Resume:</label>
+                  <input type="file" (change)="onFileSelected($event)" 
+                  placeholder="Upload file" accept=".pdf,.doc,.docx">
                   <h3>Send Application</h3>
                   <p>
                     By clicking the submit button below, I cerity that all of

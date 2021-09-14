@@ -1,6 +1,7 @@
 import { HttpClientModule} from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, ValidationErrors } from '@angular/forms';
+import { Observable } from 'rxjs';
 import { RegisterService } from '../register.service';
 import { Register } from './register.model';
  
@@ -32,11 +33,13 @@ export class RegisterComponent implements OnInit {
     this.List();
   }
 
-  onSubmit() {
+  onSubmit(Data:any) {
   
-      console.log("Form Submitted!");
-       
-    }
+      console.log(Data);
+      this.registerService.InsertData(Data).subscribe((result)=>{
+     alert(result);
+      });
+  }
   
    
   
@@ -70,10 +73,13 @@ allowNumericDigitsOnlyOnKeyUp(event: { which: any; keyCode: any; }):any
      return false;
 		}
 	}
- selectedFile=null;
- 
-  onFileSelected(event: any){
-    this.selectedFile=event.target.files[0];
-console.log(event);
+  onFileSelected(event:any) {
+    let fileList: FileList = event.target.files;
+    if(fileList.length > 0) {
+        let file: File = fileList[0];
+        let formData:FormData = new FormData();
+        formData.append('uploadFile', file, file.name);
+         
+    }
   }
 }
