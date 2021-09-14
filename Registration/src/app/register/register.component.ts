@@ -1,3 +1,4 @@
+import { HttpClientModule} from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, ValidationErrors } from '@angular/forms';
 import { RegisterService } from '../register.service';
@@ -15,6 +16,7 @@ import { Register } from './register.model';
 	
 export class RegisterComponent implements OnInit {
   register = new Register();
+ 
 
   list: any = [];
   list1: any = [];
@@ -68,5 +70,10 @@ allowNumericDigitsOnlyOnKeyUp(event: { which: any; keyCode: any; }):any
      return false;
 		}
 	}
-}
+ selectedFile=null;
  
+  onFileSelected(event: any){
+    this.selectedFile=event.target.files[0];
+console.log(event);
+  }
+}

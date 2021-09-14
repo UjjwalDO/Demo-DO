@@ -7,12 +7,6 @@
   background: white;
   padding: 10px;
 }
-input.ng-invalid {
-  background-color: rgb(233, 146, 160);
-}
-input.ng-valid {
-  background-color: rgb(212, 245, 212);
-}
  
 .button {
   background-color: #4CAF50; /* Green */

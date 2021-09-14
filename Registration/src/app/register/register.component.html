@@ -895,14 +895,8 @@
                     ngModel
                   /><br />
                   <label name="DocTypeId" value="2">Resume:</label>
-                  <input
-                    type="file"
-                    id="DocName"
-                    name="DocName"
-                    class="form-control"
-                    ngModel
-                  />
-
+                  <input type="file" class="file"
+                   (change)="onFileSelected($event)">
                   <h3>Send Application</h3>
                   <p>
                     By clicking the submit button below, I cerity that all of
